@@ -1,12 +1,29 @@
+/*eslint-disable no-unused-vars */
 'use strict';
 
-const one = 1;
-const React = require('react');
+const React    = require('react');
 const ReactDOM = require('react-dom');
+const { Router } = require('react-router');
+const { useQueries, createHashHistory } = require('history');
 
-console.log(one);
+const rootRoute = {
+  component : 'div',
+  childRoutes : [
+    {
+      path : '/',
+      component : require('./component/'),
+      childRoutes : [
+        require('./routes/a/'),
+        require('./routes/b/')
+      ]
+    }
+  ]
+};
 
 ReactDOM.render(
-  <h1>{ one }</h1>,
+  <Router
+    routes  = { rootRoute }
+    history = { useQueries(createHashHistory)() }
+  />,
   document.getElementById('main')
 );
