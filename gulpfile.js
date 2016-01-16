@@ -47,6 +47,7 @@ const bundle = watch => {
       'a.js'      : ['./src/routes/a/component/index'],
       'b.js'      : ['./src/routes/b/component/index']
     },
+    main   : './src/entry',
     output : './dist'
   });
 
