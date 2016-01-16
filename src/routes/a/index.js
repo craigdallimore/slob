@@ -5,9 +5,16 @@ module.exports = {
   path: 'a',
 
   getComponent(location, cb) {
-    //require.ensure([], (require) => {
-    cb(null, require('./component/'));
-    //})
+
+    loadjs([
+
+      `.${__dirname}/component/index`
+
+    ], component => {
+
+      cb(null, component);
+
+    });
   }
 
 };

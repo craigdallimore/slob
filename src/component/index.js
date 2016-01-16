@@ -7,8 +7,6 @@ const Index = React.createClass({
 
   render() {
 
-    console.log('render index');
-
     return (
       <div>
         <h2>Index</h2>
