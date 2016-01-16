@@ -1,0 +1,5 @@
+- [] Code splitting / lazy loading
+- [] Routing
+- [] Transpilation / Minification of Components
+- [] CSS Modules
+- [] Translations
