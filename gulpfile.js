@@ -7,6 +7,19 @@ const watchify   = require('watchify');
 const babelify   = require('babelify');
 const source     = require('vinyl-source-stream');
 
+const factorEntries = [
+  './src/entry.js',
+  './src/routes/a/component/index.js',
+  './src/routes/b/component/index.js'
+];
+const factorOutputs = [
+  './dist/core.js',
+  './dist/a.js',
+  './dist/b.js'
+];
+
+const common = 'common.js';
+
 // handleError :: Error -> undefined
 const handleError = err => {
 
@@ -18,19 +31,23 @@ const handleError = err => {
 
 // https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md
 const opts = {
-  entries      : ['./src/entry.js'],
+  entries      : factorEntries,
   cache        : {},
   packageCache : {},
-  fullPaths    : true,
-  debug        : true
+  fullPaths    : false,
+  debug        : false
 };
+
+const factor = require('factor-bundle');
 
 // rebundle :: Object browserify -> ???
 const rebundle = b => {
 
-  return b.bundle()
+  return b
+    .plugin(factor, { o : factorOutputs })
+    .bundle()
     .on('error', handleError)
-    .pipe(source('bundle.js'))
+    .pipe(source(common))
     .pipe(gulp.dest('./dist'));
 
 };
