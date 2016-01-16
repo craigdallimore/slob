@@ -7,12 +7,6 @@ const watchify   = require('watchify');
 const babelify   = require('babelify');
 const partition  = require('partition-bundle');
 
-const partitionMap = {
-  'common.js' : ['./src/entry'],
-  'a.js'      : ['./src/routes/a/component/index'],
-  'b.js'      : ['./src/routes/b/component/index']
-};
-
 // handleError :: Error -> undefined
 const handleError = err => {
 
@@ -42,13 +36,17 @@ const rebundle = b => {
 // bundle :: Boolean watch -> undefined
 const bundle = watch => {
 
-  let b = browserify(opts);
+  let b = browserify();
 
   b.on('log', util.log);
 
   b.transform(babelify);
   b.plugin(partition, {
-    map : partitionMap ,
+    map : {
+      'common.js' : ['./src/entry'],
+      'a.js'      : ['./src/routes/a/component/index'],
+      'b.js'      : ['./src/routes/b/component/index']
+    },
     output : './dist'
   });
 
