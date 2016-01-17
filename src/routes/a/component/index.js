@@ -4,8 +4,6 @@
 const React  = require('react');
 const styles = require('../styles.css');
 
-console.log(styles, 'foo');
-
 const A = React.createClass({
 
   render() {

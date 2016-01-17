@@ -1,16 +1,14 @@
 'use strict';
 
+const loadjs = require('fg-loadjs');
+
 module.exports = {
 
   path: 'b',
 
   getComponent(location, cb) {
 
-    loadjs([
-
-      `.${__dirname}/component/index`
-
-    ], component => {
+    loadjs(['b.js'], component => {
 
       cb(null, component);
 

@@ -4,8 +4,6 @@ const React    = require('react');
 const { Link } = require('react-router');
 const styles   = require('../styles.css');
 
-console.log(styles);
-
 const Index = React.createClass({
 
   render() {
@@ -25,4 +23,4 @@ const Index = React.createClass({
 
 });
 
-module.exports =  Index;
+module.exports = Index;
