@@ -1,11 +1,10 @@
-- [] Code splitting / lazy loading
-  - want to go to a route and get
-  - a point where we can check auth
-  - the minified js for that route
-  - css
-  - a temporary loading view!
-  - i18n
-  - check the _data_ is available, and either show the loaded view or an empty state
-- [] Transpilation / Minification of Components
+- [] Proper watchifying
+- [] Minification
 - [] CSS Modules
-- [] Translations
+- [] i18n Translations
+- [] Route loading (not just module loading)
+- [] Widget example
+- want to go to a route and get
+  - a point where we can check auth
+  - a temporary loading view!
+  - check the _data_ is available, and either show the loaded view or an empty state

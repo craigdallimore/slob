@@ -6,6 +6,7 @@ const browserify = require('browserify');
 const watchify   = require('watchify');
 const babelify   = require('babelify');
 const partition  = require('partition-bundle');
+const cssmodules = require('css-modulesify');
 
 // handleError :: Error -> undefined
 const handleError = err => {
@@ -18,29 +19,23 @@ const handleError = err => {
 
 // https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md
 const opts = {
+  entries : ['./src/entry'],
   cache        : {},
   packageCache : {},
   fullPaths    : false,
   debug        : true
 };
 
-// rebundle :: Object browserify -> ???
-const rebundle = b => {
-
-  return b
-    .bundle()
-    .on('error', handleError);
-
-};
-
 // bundle :: Boolean watch -> undefined
 const bundle = watch => {
 
-  let b = browserify();
+  let b = browserify(opts);
 
   b.on('log', util.log);
+  b.on('error', handleError);
 
   b.transform(babelify);
+
   b.plugin(partition, {
     map : {
       'common.js' : ['./src/entry'],
@@ -51,17 +46,23 @@ const bundle = watch => {
     output : './dist'
   });
 
+  b.plugin(cssmodules, {
+    rootDir : __dirname,
+    output : './dist/bundle.css'
+  });
+
   if (watch) {
 
     b = watchify(b);
 
     b.on('update', () => {
-      return rebundle(b);
+      util.log('UPDATE');
+      return b.bundle();
     });
 
   }
 
-  return rebundle(b);
+  return b.bundle();
 
 };
 
