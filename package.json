@@ -9,7 +9,6 @@
     "browserify": "^13.0.0",
     "css-modulesify": "^0.16.1",
     "factor-bundle": "^2.5.0",
-    "fg-loadjs": "^0.2.3",
     "gulp": "^3.9.0",
     "gulp-util": "^3.0.7",
     "history": "^1.17.0",
