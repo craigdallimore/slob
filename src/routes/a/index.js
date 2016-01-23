@@ -1,6 +1,6 @@
 'use strict';
 
-const loadjs = require('fg-loadjs');
+const loader = require('../../../loader');
 
 module.exports = {
 
@@ -8,11 +8,12 @@ module.exports = {
 
   getComponent(location, cb) {
 
-    loadjs(['a.js'], event => {
+    console.log('[0] getComponent called (a)');
+    loader.load('./a.js', (c) => {
 
-      console.log('should be component', event);
+      console.log('should be component', c);
 
-      cb(null, event);
+      cb(null, c);
 
     });
   }

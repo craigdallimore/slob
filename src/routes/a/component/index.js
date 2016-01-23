@@ -1,6 +1,7 @@
-
 'use strict';
 
+/* to make the factor easier to understand, removing
+ * 3rd party libs for now ...
 const React  = require('react');
 const styles = require('../styles.css');
 
@@ -13,5 +14,13 @@ const A = React.createClass({
   }
 
 });
+*/
+global.__asyncScripts['a.js'] = {
+  onLoad : function(cb) {
+    console.log('a.js onLoad definition');
+    cb('hello from a.js');
+  }
+};
 
-module.exports = A;
+module.exports = 1000;
+

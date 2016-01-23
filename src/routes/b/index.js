@@ -1,18 +1,17 @@
 'use strict';
 
-const loadjs = require('fg-loadjs');
-
 module.exports = {
 
   path: 'b',
 
   getComponent(location, cb) {
 
-    loadjs(['b.js'], component => {
+    console.log('getComponent b, not set up');
+    //loadjs(['b.js'], component => {
 
-      cb(null, component);
+      //cb(null, component);
 
-    });
+    //});
 
   }
 
