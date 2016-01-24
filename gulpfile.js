@@ -41,6 +41,9 @@ const rebundle = b => {
     // Browserify starts at the entry point files you give it and searches for
     // calls to require(), looks at the strings in them and follows the file
     // paths, and continues looking in those files for further require calls.
+    //
+    // Browserify acts in phases http://jmm.github.io/browserify-pipeline-docs/
+    //
     // Browserify exposes it's "compiler pipeline" as a "label-stream-splicer".
     // Transformatons can be added to / removed from the internal pipeline.
     //
