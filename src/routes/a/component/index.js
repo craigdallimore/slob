@@ -1,5 +1,7 @@
 'use strict';
 
+const common = require('common/commonModule.js');
+
 /* to make the factor easier to understand, removing
  * 3rd party libs for now ...
 const React  = require('react');
