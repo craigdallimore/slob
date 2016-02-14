@@ -2,14 +2,14 @@
 
 const React    = require('react');
 const { Link } = require('react-router');
-const styles   = require('../styles.css');
+//import styles from '../styles.css';
 
 const Index = React.createClass({
 
   render() {
 
     return (
-      <div className = { styles.index }>
+      <div>
         <h2>Index</h2>
         <nav>
           <Link to = "/a">Link to a</Link>

@@ -6,12 +6,15 @@ module.exports = {
 
   getComponent(location, cb) {
 
-    console.log('getComponent b, not set up');
-    //loadjs(['b.js'], component => {
+    console.log('getComponent b');
+    require.ensure([], (require) => {
 
-      //cb(null, component);
+      const component = require('./component')
+      console.log(component);
 
-    //});
+      cb(null, component);
+
+    });
 
   }
 
