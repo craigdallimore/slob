@@ -20,7 +20,7 @@ npm run dev
 ### To deploy assets
 
 ```
-// TODO
+npm run deploy
 ```
 
 
