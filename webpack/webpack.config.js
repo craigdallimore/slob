@@ -3,6 +3,7 @@
 const path                  = require('path');
 // const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const HtmlWebpackPlugin     = require('html-webpack-plugin');
 
 const CONTEXT_PATH = path.join(__dirname, '..');
 const DIST_PATH    = './dist';
@@ -64,7 +65,11 @@ module.exports = {
   },
 
   plugins : [
-    new WebpackNotifierPlugin()
+    new WebpackNotifierPlugin(),
+    new HtmlWebpackPlugin({
+      template : path.join(__dirname, '../src/template/index.ejs'),
+      title    : 'Example'
+    })
     //new ExtractTextPlugin('bundle.css', { allChunks : true })
   ]
 

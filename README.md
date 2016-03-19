@@ -26,6 +26,7 @@ npm run dev
 
 ## Goals
 
+- [] Render templated index.html
 - [] postcss autoprefixing
 - [] i18n Translations
 - [] Route loading (not just module loading)
