@@ -24,24 +24,64 @@
     "Modernizr"          : true,
     "mockStore"          : true
   },
-  "ecmaFeatures": {
-    "jsx": true
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
-    "strict"                     : [2, "global"],
-    "semi"                       : [2, "always"],
-    "react/jsx-no-undef"         : 2,
-    "react/jsx-quotes"           : 2,
+    "array-bracket-spacing" : [2, "never", { "singleValue": true }],
+    "camelcase"             : [2, { "properties": "never" }],
+    "comma-style"           : [2, "last"],
+    "dot-notation"          : 2, "curly": [ 2, "all" ],
+    "eol-last"              : 2,
+    "jsx-quotes"            : 2,
+    "keyword-spacing": [ 2,
+      {
+        "overrides": {
+          "if"     : { "after" : true },
+          "else"   : { "after" : true },
+          "for"    : { "after" : true },
+          "while"  : { "after" : true },
+          "do"     : { "after" : true },
+          "switch" : { "after" : true },
+          "case"   : { "after" : true },
+          "return" : { "after" : true },
+          "try"    : { "after" : true },
+          "catch"  : { "after" : true },
+          "typeof" : { "after" : true }
+        }
+      }
+    ],
     "no-catch-shadow"            : 2,
     "no-delete-var"              : 2,
+    "no-dupe-keys"               : 2,
+    "no-empty"                   : 2,
     "no-label-var"               : 2,
+    "no-mixed-spaces-and-tabs"   : 2,
+    "no-multiple-empty-lines"    : 2,
     "no-shadow"                  : 2,
     "no-shadow-restricted-names" : 2,
+    "no-trailing-spaces"         : 2, "comma-dangle": [ 2, "never" ],
     "no-undef"                   : 2,
     "no-undef-init"              : 2,
     "no-undefined"               : 2,
-    "no-unused-vars"             : 2,
+    "no-unused-vars"             : [2, { "vars" : "all", "args" : "after-used"}],
     "no-use-before-define"       : 2,
-    "no-unused-vars"             : [2, {"vars" : "all", "args" : "after-used"}]
+    "no-with"                    : 2,
+    "one-var"                    : [2, "never"],
+    "react/jsx-no-undef"         : 2,
+    "react/jsx-uses-vars"        : 2,
+    "semi"                       : [2, "always"],
+    "space-before-blocks"        : [2, "always"],
+    "space-in-parens"            : [2, "never"],
+    "space-infix-ops"            : 2,
+    "space-unary-ops"            : [2, { "words": false,"nonwords": false }],
+    "strict"                     : [2, "global"],
+    "wrap-iife"                  : 2, "yoda": [2, "never"],
+    "consistent-this"            : [2, "_this"],
+    "linebreak-style"            : [2, "unix"],
+    "quotes"                     : [2, "single", "avoid-escape"],
+    "indent"                     : [2, 2, { "SwitchCase": 1 }]
   }
 }
