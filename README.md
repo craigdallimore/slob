@@ -23,12 +23,18 @@ npm run dev
 
 ## Goals
 
-- [] Proper watchifying
-- [] Minification
+- [] Hot reload?
 - [] CSS Modules
+- [] CSS Sourcemaps
 - [] i18n Translations
 - [] Route loading (not just module loading)
+- [] Tests with Jest
+- [] No ../../../
 - [] Widget example
+- [] Deploy mode
+ -- no sourcemaps
+ -- cachebusting
+
 - want to go to a route and get
   - a point where we can check auth
   - a temporary loading view!
