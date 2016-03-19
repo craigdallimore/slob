@@ -1,8 +1,10 @@
+'use strict';
+
 const path = require('path');
 
 const CONTEXT_PATH          = path.join(__dirname, '..');
 const DIST_PATH             = './dist';
-const ExtractTextPlugin     = require('extract-text-webpack-plugin');
+//const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
@@ -14,7 +16,7 @@ module.exports = {
   },
 
   output : {
-    path : DIST_PATH,
+    path     : path.join(__dirname, DIST_PATH),
     filename : '[name].js'
   },
 
@@ -43,7 +45,7 @@ module.exports = {
 
   resolve : {
 
-    modulesDirectories : ['node_modules'],
+    modulesDirectories : [ 'node_modules' ],
     extensions : ['', '.css', '.js', '.jsx', '.json']
 
   },

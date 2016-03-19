@@ -32,6 +32,8 @@ npm run dev
 - [] No ../../../
 - [] Widget example
 - [] Deploy mode
+ -- separate config
+ -- minified
  -- no sourcemaps
  -- cachebusting
 
