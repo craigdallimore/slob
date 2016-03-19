@@ -4,7 +4,7 @@
 const React      = require('react');
 const ReactDOM   = require('react-dom');
 const { Router } = require('react-router');
-const { useQueries, createHashHistory } = require('history');
+const history    = require('./history');
 
 const rootRoute = {
   component : 'div',
@@ -23,7 +23,7 @@ const rootRoute = {
 ReactDOM.render(
   <Router
     routes  = { rootRoute }
-    history = { useQueries(createHashHistory)() }
+    history = { history }
   />,
   document.getElementById('main')
 );
