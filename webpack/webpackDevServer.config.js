@@ -11,13 +11,14 @@ const PROXY_TARGET = 'http://127.0.0.1:8080'; // The real server, not WDS.
 
 config.entry.common = [
   `webpack-dev-server/client?http://${PROXY_DOMAIN}:${PROXY_PORT}`,
-  'webpack/hot/dev-server'
+  'webpack/hot/only-dev-server'
 ].concat(config.entry.common);
 
 config.output.publicPath = PUBLIC_PATH;
 
 config.plugins.push(
-  new webpack.HotModuleReplacementPlugin()
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin()
 );
 
 const compiler = webpack(config);
@@ -26,7 +27,7 @@ const server = new WebpackDevServer(compiler, {
   proxy      : { '*': PROXY_TARGET },
   hot        : true,
   inline     : true,
-  quiet      : true,
+  quiet      : false,
   noInfo     : false,
   publicPath : `http://${PROXY_DOMAIN}:${PROXY_PORT}${PUBLIC_PATH}`,
   stats      : { colors: true }

@@ -6,6 +6,8 @@ const ReactDOM   = require('react-dom');
 const { Router } = require('react-router');
 const history    = require('./history');
 
+require('./scss/main.scss');
+
 const rootRoute = {
   component : 'div',
   childRoutes : [

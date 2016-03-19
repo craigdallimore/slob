@@ -26,8 +26,7 @@ npm run dev
 
 ## Goals
 
-- [] CSS Modules
-- [] CSS Sourcemaps
+- [] postcss autoprefixing
 - [] i18n Translations
 - [] Route loading (not just module loading)
 - [] Tests with Jest

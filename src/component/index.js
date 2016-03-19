@@ -2,7 +2,6 @@
 
 const React    = require('react');
 const { Link } = require('react-router');
-//const styles   = require('../styles.css');
 
 const Index = React.createClass({
 
