@@ -12,7 +12,7 @@ module.exports = {
   context : CONTEXT_PATH,
 
   entry  : {
-    common : './src/entry'
+    common : [ './src/entry' ]
   },
 
   output : {
