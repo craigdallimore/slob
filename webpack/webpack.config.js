@@ -33,11 +33,9 @@ module.exports = {
         //)
       },
       {
-        test   : /\.jsx?$/,
-        loader : 'babel-loader',
-        query : {
-          presets : ['es2015', 'react']
-        }
+        test    : /\.jsx?$/,
+        loaders : ['react-hot', 'babel'],
+        include : path.join(__dirname, '../src')
       }
     ]
 

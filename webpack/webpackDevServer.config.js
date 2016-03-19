@@ -15,6 +15,8 @@ config.entry.common = [
   config.entry.common
 ];
 
+config.output.publicPath = PUBLIC_PATH;
+
 config.plugins.push(
   new webpack.HotModuleReplacementPlugin()
 );
@@ -23,15 +25,12 @@ const compiler = webpack(config);
 
 const server = new WebpackDevServer(compiler, {
 
-  // The address of the _ACTUAL_ served site - this is what will be proxied
-  // by WebpackDevServer.
-  contentBase : PROXY_TARGET,
   proxy       : { '*': PROXY_TARGET },
   hot         : true,
   inline      : true,
   quiet       : true,
   noInfo      : false,
-  publicPath  : PUBLIC_PATH,
+  publicPath  : `http://${PROXY_DOMAIN}:${PROXY_PORT}${PUBLIC_PATH}`,
   stats       : { colors: true }
 });
 
