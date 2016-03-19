@@ -4,6 +4,8 @@ Trying out a bunch of libraries and tools to see how well they fit together.
 
 ### To start the webserver
 
+Available at [http://127.0.0.1:8080](http://127.0.0.1:8080)
+
 ```
 nodemon server.js
 ```
@@ -19,6 +21,8 @@ npm run dev
 
 ### To deploy assets
 
+This will write asset files (html, css, js) to the `./dist` folder.
+
 ```
 npm run deploy
 ```
@@ -26,7 +30,6 @@ npm run deploy
 
 ## Goals
 
-- [] postcss autoprefixing
 - [] i18n Translations
 - [] Route loading (not just module loading)
 - [] Find a way to customise the jsonP thing in webpack

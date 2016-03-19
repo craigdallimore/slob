@@ -4,12 +4,13 @@ const path                  = require('path');
 const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
+const autoprefixer          = require('autoprefixer');
 
 const CONTEXT_PATH = path.join(__dirname, '..');
 const DIST_PATH    = '../dist';
 const DEBUG        = process.env.NODE_ENV === 'development';
 
-const scssLoader = DEBUG ?  'style!css!sass?sourceMap' : ExtractTextPlugin.extract('css!sass');
+const scssLoader = DEBUG ?  'style!css!sass?sourceMap!postcss' : ExtractTextPlugin.extract('css!postcss!sass');
 
 module.exports = {
 
@@ -41,6 +42,12 @@ module.exports = {
         include : path.join(__dirname, '../src')
       }
     ]
+
+  },
+
+  postcss () {
+
+    return [ autoprefixer ];
 
   },
 
