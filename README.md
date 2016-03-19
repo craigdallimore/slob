@@ -26,16 +26,15 @@ npm run dev
 
 ## Goals
 
-- [] Render templated index.html
 - [] postcss autoprefixing
 - [] i18n Translations
 - [] Route loading (not just module loading)
+- [] Find a way to customise the jsonP thing in webpack
 - [] Tests with Jest
 - [] No ../../../
 - [] Widget example
 - [] Deploy mode
  -- separate config
- -- minified
  -- no sourcemaps
  -- cachebusting
 

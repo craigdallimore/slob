@@ -1,13 +1,15 @@
 'use strict';
 
 const path                  = require('path');
-// const ExtractTextPlugin     = require('extract-text-webpack-plugin');
+const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
 
 const CONTEXT_PATH = path.join(__dirname, '..');
-const DIST_PATH    = './dist';
-// const DEBUG        = process.env.NODE_ENV === 'development';
+const DIST_PATH    = '../dist';
+const DEBUG        = process.env.NODE_ENV === 'development';
+
+const scssLoader = DEBUG ?  'style!css!sass?sourceMap' : ExtractTextPlugin.extract('css!sass');
 
 module.exports = {
 
@@ -30,16 +32,9 @@ module.exports = {
       // https://github.com/wallacyyy/simple-react-flux-example/blob/master/webpack.config.js
       {
         test    : /\.scss$/,
-        loader  : 'style!css!sass?sourceMap',
+        loader  : scssLoader,
         include : path.join(__dirname, '../src/scss/')
       },
-      //{
-        //test : /\.css$/,
-        //loader : 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-        //loader : ExtractTextPlugin.extract(
-          //'style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-        //)
-      //},
       {
         test    : /\.jsx?$/,
         loaders : ['react-hot', 'babel'],
@@ -68,9 +63,10 @@ module.exports = {
     new WebpackNotifierPlugin(),
     new HtmlWebpackPlugin({
       template : path.join(__dirname, '../src/template/index.ejs'),
-      title    : 'Example'
-    })
-    //new ExtractTextPlugin('bundle.css', { allChunks : true })
+      filename : 'index.html',
+      title    : DEBUG ? 'Dev Mode' : 'Production'
+    }),
+    new ExtractTextPlugin('bundle.css', { allChunks : true })
   ]
 
 };
