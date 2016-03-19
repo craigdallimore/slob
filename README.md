@@ -11,7 +11,7 @@ nodemon server.js
 ### To start webpack in dev mode
 
 ```
-// TODO
+npm run dev
 ```
 
 ### To deploy assets
