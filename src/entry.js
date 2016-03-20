@@ -1,12 +1,12 @@
 /*eslint-disable no-unused-vars */
 'use strict';
 
-const React                = require('react');
-const ReactDOM             = require('react-dom');
-const { Router }           = require('react-router');
-const { IntlProvider }     = require('react-intl');
-const history              = require('./history');
-const { locale, messages } = require('common/en-GB');
+const React            = require('react');
+const ReactDOM         = require('react-dom');
+const { Router }       = require('react-router');
+const { IntlProvider } = require('react-intl');
+const history          = require('./history');
+const language         = require('common/en-GB');
 
 require('./scss/main.scss');
 
@@ -26,10 +26,7 @@ const rootRoute = {
 
 
 ReactDOM.render(
-  <IntlProvider
-    locale   = { locale }
-    messages = { messages }
-  >
+  <IntlProvider {...language}>
     <Router
       routes  = { rootRoute }
       history = { history }

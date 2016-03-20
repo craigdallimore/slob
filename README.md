@@ -33,11 +33,7 @@ npm run deploy
 
 ## Goals
 
-- [x] i18n Translations
 - [ ] Route loading (not just module loading)
-- [x] Find a way to customise the jsonP thing in webpack
-- [ ] Tests with Jest
-- [x] No ../../../
 - [ ] Widget example
 - [ ] Deploy mode
   - [ ] separate config
