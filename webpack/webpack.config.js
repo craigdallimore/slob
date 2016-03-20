@@ -7,8 +7,12 @@ const HtmlWebpackPlugin     = require('html-webpack-plugin');
 const autoprefixer          = require('autoprefixer');
 
 const CONTEXT_PATH = path.join(__dirname, '..');
-const DIST_PATH    = '../dist';
-const DEBUG        = process.env.NODE_ENV === 'development';
+const DIST_PATH    = path.join(__dirname, '../dist');
+const SCSS_PATH    = path.join(__dirname, '../src/scss/');
+const SRC_PATH     = path.join(__dirname, '../src');
+const TMPL_PATH    = path.join(__dirname, '../src/template/index.ejs');
+
+const DEBUG = process.env.NODE_ENV === 'development';
 
 const scssLoader = DEBUG ?  'style!css!sass?sourceMap!postcss' : ExtractTextPlugin.extract('css!postcss!sass');
 
@@ -21,8 +25,10 @@ module.exports = {
   },
 
   output : {
-    path     : path.join(__dirname, DIST_PATH),
-    filename : '[name].js'
+    path              : DIST_PATH,
+    filename          : '[name].js',
+    jsonpFunction     : '__split_loader',
+    hotUpdateFunction : '__hot_update_loader'
   },
 
   devtool : 'source-map',
@@ -34,12 +40,12 @@ module.exports = {
       {
         test    : /\.scss$/,
         loader  : scssLoader,
-        include : path.join(__dirname, '../src/scss/')
+        include : SCSS_PATH
       },
       {
         test    : /\.jsx?$/,
         loaders : ['react-hot', 'babel'],
-        include : path.join(__dirname, '../src')
+        include : SRC_PATH
       }
     ]
 
@@ -69,7 +75,7 @@ module.exports = {
   plugins : [
     new WebpackNotifierPlugin(),
     new HtmlWebpackPlugin({
-      template : path.join(__dirname, '../src/template/index.ejs'),
+      template : TMPL_PATH,
       filename : 'index.html',
       title    : DEBUG ? 'Dev Mode' : 'Production'
     }),
