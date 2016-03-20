@@ -14,7 +14,7 @@ const TMPL_PATH    = path.join(__dirname, '../src/template/index.ejs');
 
 const DEBUG = process.env.NODE_ENV === 'development';
 
-const scssLoader = DEBUG ?  'style!css!sass?sourceMap!postcss' : ExtractTextPlugin.extract('css!postcss!sass');
+const scssLoader = DEBUG ? 'style!css!sass?sourceMap!postcss' : ExtractTextPlugin.extract('css!postcss!sass');
 
 module.exports = {
 
