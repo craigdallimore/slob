@@ -1,10 +1,11 @@
 /*eslint-disable no-unused-vars */
 'use strict';
 
-const React      = require('react');
-const ReactDOM   = require('react-dom');
-const { Router } = require('react-router');
-const history    = require('./history');
+const React            = require('react');
+const ReactDOM         = require('react-dom');
+const { Router }       = require('react-router');
+const { IntlProvider } = require('react-intl');
+const history          = require('./history');
 
 require('./scss/main.scss');
 
@@ -22,10 +23,20 @@ const rootRoute = {
   ]
 };
 
+const locale = 'en-Gb';
+const messages = {
+  'label-a' : 'LABEL-A'
+};
+
 ReactDOM.render(
-  <Router
-    routes  = { rootRoute }
-    history = { history }
-  />,
+  <IntlProvider
+    locale   = { locale }
+    messages = { messages }
+  >
+    <Router
+      routes  = { rootRoute }
+      history = { history }
+    />
+  </IntlProvider>,
   document.getElementById('main')
 );

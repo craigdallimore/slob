@@ -1,16 +1,16 @@
 'use strict';
 
-const React  = require('react');
-//const styles = require('../styles.css');
+const React          = require('react');
+const { injectIntl } = require('react-intl');
 
 const A = React.createClass({
 
   render() {
 
-    return <h2>A</h2>;
+    return <h2>{ this.props.intl.formatMessage({ id : 'label-a' }) }</h2>;
 
   }
 
 });
 
-module.exports = A;
+module.exports = injectIntl(A);
