@@ -35,9 +35,9 @@ npm run deploy
 
 - [x] i18n Translations
 - [ ] Route loading (not just module loading)
-- [ ] Find a way to customise the jsonP thing in webpack
+- [x] Find a way to customise the jsonP thing in webpack
 - [ ] Tests with Jest
-- [ ] No ../../../
+- [x] No ../../../
 - [ ] Widget example
 - [ ] Deploy mode
   - [ ] separate config
