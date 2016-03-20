@@ -15,7 +15,7 @@ nodemon server.js
 ### To start webpack in dev mode
 
 This will start a webpack dev server, which will proxy the actual site from
-another address (and serve the webpacked assets itself).
+[another address](http://localhost:3333) (and serve the webpacked assets itself).
 
 ```
 npm run dev
