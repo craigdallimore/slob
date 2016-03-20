@@ -33,9 +33,16 @@ npm run deploy
 
 ## Goals
 
-- [ ] Route loading (not just module loading)
-- [ ] Widget example
-- [ ] Deploy mode
-  - [ ] separate config
-  - [ ] no sourcemaps
-  - [ ] cachebusting
+- [x] Hot Module Replacement :fire:
+- [x] Code splitting on modules
+- [x] i18n
+- [x] No `../../../`
+- [x] Example test
+- [x] Dev: JS Sourcemaps
+- [x] Prod: Minified assets
+- [ ] Dev: SCSS Sourcemaps
+- [ ] Code splitting on routes
+- [ ] A lazy loaded widget example
+- [ ] Prod: separate config
+- [ ] Prod: No sourcemaps
+- [ ] Prod: Cachebusting
