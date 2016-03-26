@@ -44,7 +44,7 @@ module.exports = Object.assign(config, {
       filename : 'index.html',
       title    : 'Prod Mode'
     }),
-    new ExtractTextPlugin('bundle.css', { allChunks : true }),
+    new ExtractTextPlugin(`bundle.${BUILD}.css`, { allChunks : true }),
     // https://github.com/webpack/webpack/issues/292#issuecomment-44804366
     new webpack.DefinePlugin({
       'process.env' : { NODE_ENV: JSON.stringify('production') }
