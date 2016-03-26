@@ -43,7 +43,7 @@ module.exports = Object.assign(config, {
       },
       {
         test    : /\.scss$/,
-        loader  : 'style!css!sass?sourceMap!postcss',
+        loader  : 'style!css?sourceMap!sass?sourceMap!postcss',
         include : SRC_PATH
       }
     ]
