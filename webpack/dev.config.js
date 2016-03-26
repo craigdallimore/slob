@@ -1,9 +1,11 @@
 'use strict';
 
-const WebpackNotifierPlugin  = require('webpack-notifier');
-const HtmlWebpackPlugin      = require('html-webpack-plugin');
-const ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
-const webpack                = require('webpack');
+const WebpackNotifierPlugin     = require('webpack-notifier');
+const HtmlWebpackPlugin         = require('html-webpack-plugin');
+const ModernizrWebpackPlugin    = require('modernizr-webpack-plugin');
+const ForceCaseSenitivityPlugin = require('force-case-sensitivity-webpack-plugin');
+const webpack                   = require('webpack');
+
 const config                 = require('./common.config');
 
 const PROXY_DOMAIN = require('./paths').PROXY_DOMAIN;
@@ -53,6 +55,7 @@ module.exports = Object.assign(config, {
   },
 
   plugins : [
+    new ForceCaseSenitivityPlugin(),
     new WebpackNotifierPlugin(),
     new HtmlWebpackPlugin({
       template : TMPL_PATH,
