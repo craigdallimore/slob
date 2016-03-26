@@ -37,12 +37,13 @@ npm run deploy
 - [x] Code splitting on modules
 - [x] i18n
 - [x] No `../../../`
+- [x] Modernizr
 - [x] Example test
 - [x] Dev: JS Sourcemaps
 - [x] Prod: Minified assets
-- [ ] Dev: SCSS Sourcemaps
+- [x] Dev: SCSS Sourcemaps
 - [ ] Code splitting on routes
 - [ ] A lazy loaded widget example
-- [ ] Prod: separate config
-- [ ] Prod: No sourcemaps
-- [ ] Prod: Cachebusting
+- [x] Prod: separate config
+- [x] Prod: No sourcemaps
+- [x] Prod: Cachebusting

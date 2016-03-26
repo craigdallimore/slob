@@ -18,6 +18,10 @@ if (process.env.NODE_ENV === 'production') {
   console.log('Production mode');
 }
 
+if (Modernizr.placeholder) {
+  console.log('hasPlaceholder');
+}
+
 const rootRoute = {
   component : 'div',
   childRoutes : [

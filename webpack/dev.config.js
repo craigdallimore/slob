@@ -1,5 +1,11 @@
 'use strict';
 
+const WebpackNotifierPlugin  = require('webpack-notifier');
+const HtmlWebpackPlugin      = require('html-webpack-plugin');
+const ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
+const webpack                = require('webpack');
+const config                 = require('./common.config');
+
 const PROXY_DOMAIN = require('./paths').PROXY_DOMAIN;
 const PROXY_PORT   = require('./paths').PROXY_PORT;
 const PUBLIC_PATH  = require('./paths').PUBLIC_PATH;
@@ -8,10 +14,7 @@ const TMPL_PATH    = require('./paths').TMPL_PATH;
 const ENTRY_PATH   = require('./paths').ENTRY_PATH;
 const DIST_PATH    = require('./paths').DIST_PATH;
 
-const WebpackNotifierPlugin = require('webpack-notifier');
-const HtmlWebpackPlugin     = require('html-webpack-plugin');
-const webpack               = require('webpack');
-const config                = require('./common.config');
+const MODERNIZR_FILENAME = 'modernizr.js';
 
 module.exports = Object.assign(config, {
 
@@ -54,7 +57,14 @@ module.exports = Object.assign(config, {
     new HtmlWebpackPlugin({
       template : TMPL_PATH,
       filename : 'index.html',
+      modName  : MODERNIZR_FILENAME,
       title    : 'Dev Mode'
+    }),
+    new ModernizrWebpackPlugin({
+      noChunk  : true,
+      filename : MODERNIZR_FILENAME,
+      options  : [ 'setClasses' ],
+      'feature-detects' : [ 'forms/placeholder' ]
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

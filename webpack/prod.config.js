@@ -1,14 +1,18 @@
 'use strict';
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack           = require('webpack');
+const ExtractTextPlugin      = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin      = require('html-webpack-plugin');
+const ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
+const webpack                = require('webpack');
+
 const config            = require('./common.config');
 const SRC_PATH          = require('./paths').SRC_PATH;
 const TMPL_PATH         = require('./paths').TMPL_PATH;
 const DIST_PATH         = require('./paths').DIST_PATH;
 const ENTRY_PATH        = require('./paths').ENTRY_PATH;
 const BUILD             = require('../package.json').version;
+
+const MODERNIZR_FILENAME = `modernizr-${BUILD}.js`;
 
 module.exports = Object.assign(config, {
 
@@ -42,7 +46,14 @@ module.exports = Object.assign(config, {
     new HtmlWebpackPlugin({
       template : TMPL_PATH,
       filename : 'index.html',
+      modName  : MODERNIZR_FILENAME,
       title    : 'Prod Mode'
+    }),
+    new ModernizrWebpackPlugin({
+      noChunk  : true,
+      filename : MODERNIZR_FILENAME,
+      options  : [ 'setClasses' ],
+      'feature-detects' : [ 'forms/placeholder' ]
     }),
     new ExtractTextPlugin(`bundle.${BUILD}.css`, { allChunks : true }),
     // https://github.com/webpack/webpack/issues/292#issuecomment-44804366
