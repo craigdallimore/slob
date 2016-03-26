@@ -6,6 +6,7 @@ const config            = require('./common.config');
 const SRC_PATH          = require('./paths').SRC_PATH;
 const TMPL_PATH         = require('./paths').TMPL_PATH;
 const DIST_PATH         = require('./paths').DIST_PATH;
+const BUILD             = require('../package.json').version;
 
 module.exports = Object.assign(config, {
 
@@ -14,9 +15,9 @@ module.exports = Object.assign(config, {
   },
 
   output : {
-    path              : DIST_PATH,
-    filename          : '[name].js',
-    jsonpFunction     : '__split_loader'
+    path          : DIST_PATH,
+    filename      : `[name].${BUILD}.js`,
+    jsonpFunction : '__split_loader'
   },
 
   module : {
