@@ -13,7 +13,7 @@
   "scripts": {
     "test": "jest ./src",
     "dev": "NODE_ENV=development node ./webpack/webpackDevServer.config.js",
-    "deploy": "NODE_ENV=production webpack --config ./webpack/webpack.config.js --optimize-minimize",
+    "deploy": "NODE_ENV=production webpack --config ./webpack/prod.config.js --optimize-minimize",
     "postinstall": "node ./npm-scripts/postinstall",
     "clean": "node ./npm-scripts/clean"
   },

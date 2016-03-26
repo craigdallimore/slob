@@ -1,25 +1,13 @@
 'use strict';
 
+const PROXY_DOMAIN = require('./paths').PROXY_DOMAIN;
+const PROXY_PORT   = require('./paths').PROXY_PORT;
+const PROXY_TARGET = require('./paths').PROXY_TARGET;
+const PUBLIC_PATH  = require('./paths').PUBLIC_PATH;
+
 const WebpackDevServer = require('webpack-dev-server');
+const config           = require('./dev.config.js');
 const webpack          = require('webpack');
-const config           = require('./webpack.config.js');
-
-const PROXY_DOMAIN = 'localhost';
-const PROXY_PORT   = 3333;
-const PUBLIC_PATH  = '/';
-const PROXY_TARGET = 'http://127.0.0.1:8080'; // The real server, not WDS.
-
-config.entry.common = [
-  `webpack-dev-server/client?http://${PROXY_DOMAIN}:${PROXY_PORT}`,
-  'webpack/hot/only-dev-server'
-].concat(config.entry.common);
-
-config.output.publicPath = PUBLIC_PATH;
-
-config.plugins.push(
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin()
-);
 
 const compiler = webpack(config);
 
