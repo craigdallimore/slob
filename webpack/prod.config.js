@@ -58,7 +58,8 @@ module.exports = Object.assign(config, {
     new ExtractTextPlugin(`bundle.${BUILD}.css`, { allChunks : true }),
     // https://github.com/webpack/webpack/issues/292#issuecomment-44804366
     new webpack.DefinePlugin({
-      'process.env' : { NODE_ENV: JSON.stringify('production') }
+      'process.env' : { NODE_ENV: JSON.stringify('production') },
+      'VERSION'     : JSON.stringify(BUILD)
     })
   ]
 

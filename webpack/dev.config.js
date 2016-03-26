@@ -70,7 +70,8 @@ module.exports = Object.assign(config, {
     new webpack.NoErrorsPlugin(),
     // https://github.com/webpack/webpack/issues/292#issuecomment-44804366
     new webpack.DefinePlugin({
-      'process.env' : { NODE_ENV: JSON.stringify('development') }
+      'process.env' : { NODE_ENV: JSON.stringify('development') },
+      'VERSION'     : JSON.stringify('pre-release')
     })
   ]
 

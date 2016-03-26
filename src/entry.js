@@ -10,17 +10,7 @@ const language         = require('common/en-GB');
 
 require('./scss/main.scss');
 
-if (process.env.NODE_ENV === 'development') {
-  console.log('Development mode');
-}
-
-if (process.env.NODE_ENV === 'production') {
-  console.log('Production mode');
-}
-
-if (Modernizr.placeholder) {
-  console.log('hasPlaceholder');
-}
+console.log(`VERSION: ${VERSION}`);
 
 const rootRoute = {
   component : 'div',
