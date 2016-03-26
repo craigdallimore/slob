@@ -57,7 +57,11 @@ module.exports = Object.assign(config, {
       title    : 'Dev Mode'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    // https://github.com/webpack/webpack/issues/292#issuecomment-44804366
+    new webpack.DefinePlugin({
+      'process.env' : { NODE_ENV: JSON.stringify('development') }
+    })
   ]
 
 });
