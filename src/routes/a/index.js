@@ -6,11 +6,9 @@ module.exports = {
 
   getComponent(location, cb) {
 
-    console.log('getComponent a');
     require.ensure([], (require) => {
 
-      const component = require('./component')
-      console.log(component);
+      const component = require('./component');
 
       cb(null, component);
 
